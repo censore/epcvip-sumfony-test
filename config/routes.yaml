@@ -1,0 +1,30 @@
+index:
+    path: /
+    controller: App\Controller\BaseController::index
+customer_products:
+    path: /customer/{customer_id}/products
+    controller: App\Controller\BaseController::showProducts
+customer_product_create_form:
+    path: /customer/{customer_id}/product/create
+    controller: App\Controller\BaseController::addProduct
+    methods: [GET,POST]
+    requirements:
+        customer_id: '\d+'
+api_list_of_cunsumers:
+    path: /api/v1/
+    controller: App\Api\V1\Controller\ApiController:consumersList
+    methods: [GET]
+api_create_consumers:
+    path: /api/v1/customer/create
+    controller: App\Api\V1\Controller\ApiController:createCustomer
+    methods: [POST]
+api_create_product_for_customer:
+    path: /api/v1/customer/{customer_id}/product/create
+    controller: App\Api\V1\Controller\ApiController:createProductForCustomer
+    methods: [POST]
+    requirements:
+        customer_id: '\d+'
+api_combine_product_and_customer:
+    path: /api/v1/combine
+    controller: App\Api\V1\Controller\ApiController:combine
+    methods: [PUT]

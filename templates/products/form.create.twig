@@ -1,0 +1,26 @@
+{% extends '/layouts/base.html.twig' %}
+
+{% block content %}
+    <div class="table-responsive">
+        <a href="/" class="btn btn-success"><< Back to Products list</a>
+        <form method="post" action="/customer/{{ customer_id }}/product/create">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Name</label>
+                <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="...">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Status</label>
+                <select class="form-control" name="status">
+                    <option>--</option>
+                    {% for key, value in repository.getPossible() %}
+                        <option value="{{ key }}">{{ value }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <input type="submit" class="btn btn-success" value="create" />
+        </form>
+    </div>
+{% endblock %}
+
+{# @var  #}

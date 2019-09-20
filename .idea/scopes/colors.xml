@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="colors" pattern="*.blade.php" />
+</component>
